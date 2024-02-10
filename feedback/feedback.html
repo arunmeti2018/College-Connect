@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Survey Form</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<link rel="stylesheet" href="feedback.css">
+
+
+<body>
+    <header>
+        <div id="title">
+            <h1>Survey Form</h1>
+    </header>
+
+    <form id="survey-form">
+
+        <div id="description"> Help Us to Make Better event next time</div><br>
+
+        <fieldset class="fieldset">
+
+            <div class="sub-group">
+                <label class="left" id="name-label" for="name">*Name:</label>
+                <input type="text" name="customer-name" class="right input-field" id="name"
+                    placeholder="Enter your name" required>
+            </div>
+
+            <div class="sub-group">
+                <label class="left" id="email-label" for="email">*Email:</label>
+                <input type="email" name="Email-address" class="right input-field" placeholder="Enter your email"
+                    id="email" required>
+            </div>
+
+     
+
+            <div class="sub-group">
+                <label class="left" id="handphone-label" for="handphone">*Mobile No :</label>
+
+                <input type="number" placeholder="Phone Number" class="right input-field" id="handphone" min="10" >
+            </div>
+
+            <div class="sub-group">
+                <label class="left" for="dropdown">*Branch</label>
+
+                <select class="right dropdown" id="dropdown" name="dropdown">
+                    <option selected disabled>Select an option</option>
+                    <option value="never">AI ML</option>
+                    <option value="never">ARCH</option>
+                    <option value="never">CSE</option>
+                    <option value="never">CIVIL</option>
+                    <option value="never">ECE</option>
+                    <option value="never">EEE</option>
+                    <option value="never">MECH</option>
+
+                    <option value="first">ISE</option>
+                </select>
+            </div>
+            <div class="sub-group">
+                <label class="left" for="dropdown">*YEAR</label>
+
+                <select class="right dropdown" id="dropdown" name="dropdown">
+                    <option selected disabled>Select an option</option>
+                    <option value="never">1ST YEAR</option>
+                    <option value="never">2ND YEAR</option>
+                    <option value="never">3RD YEAR</option>
+                    <option value="never">4TH YEAR</option>
+
+
+
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+            <div class="sub-group">
+                <label class="left">
+                    *Which game you played?</label>
+                <input type="text" name="game-name" class="right input-field" id="game" placeholder="Enter game name"
+                    required>
+
+            </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+
+            <div class="sub-group">
+                <label class="left" id="left-radio">*How Do You Rate This Event</label>
+
+                <ul style="list-style: none" class="right">
+                    <li class="radio"><label><input name="radio-buttons" value="1" type="radio"
+                                class="recommendation">😌</label></li>
+                    <li class="radio"><label><input name="radio-buttons" value="2" type="radio"
+                                class="recommendation">😕</label></li>
+                    <li class="radio"><label><input name="radio-buttons" value="3" type="radio"
+                                class="recommendation">🙂</label></li>
+                    <li class="radio"><label><input name="radio-buttons" value="4" type="radio"
+                                class="recommendation">😀</label></li>
+                    <li class="radio"><label><input name="radio-buttons" value="5" type="radio"
+                                class="recommendation">😍</label></li>
+                </ul>
+
+            </div>
+        </fieldset>
+        <fieldset class="fieldset">
+            <div class="sub-group">
+                <label class="left" id="left-radio">Will you recommend the game to your friends?</label>
+
+                <ul style="list-style: none" class="right">
+                    <li class="radio"><label><input name="radio-buttons" value="1" type="radio"
+                                class="recommendation">Yes</label></li>
+                    <li class="radio"><label><input name="radio-buttons" value="2" type="radio"
+                                class="recommendation">No</label></li>
+                    <li class="radio"><label><input name="radio-buttons" value="3" type="radio"
+                                class="recommendation">May be</label></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset class="fieldset">
+            <h2>Any comments or suggestions?</h2>
+
+            <div class="commentbox">
+
+                <textarea rows="4" placeholder="Enter your comment here..."></textarea>
+
+                <br></br>
+
+                <button id="submit" type="submit">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</body>
+
+</html>

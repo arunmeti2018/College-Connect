@@ -1,0 +1,688 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    color: #2683f6;
+
+}
+
+body {
+    min-height: 100vh;
+
+    background-size: cover;
+    background-position: center;
+    background-color: aliceblue;
+
+}
+
+.main {
+    width: 100%;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    margin: auto;
+    /* padding: 10px 20px; */
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    z-index: 100;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    transition: 0.5s;
+}
+
+.header:hover::before {
+    left: 100%;
+}
+
+.logo {
+    width: 80px;
+    margin-left: 1rem;
+    height: 80px;
+    cursor: default;
+}
+
+.navbar a {
+
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: 0.3s;
+    font-size: 1.5rem;
+    color: #7f27ff;
+}
+
+.navbar a:hover {
+    color: rgb(227, 71, 71);
+}
+
+#menu-icon {
+    font-size: 36px;
+    color: #000000;
+    display: none;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 0 10px;
+    margin-right: 2rem;
+    width: 100px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+}
+
+.reg {
+    color: white;
+    background-color: rgba(104, 85, 224, 1);
+}
+
+.log {
+    color: rgb(104, 85, 224);
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(104, 85, 224, 1);
+}
+
+button:hover {
+    color: white;
+
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(104, 85, 224, 1);
+}
+
+
+
+/* BREAKPOINTS */
+/* @media (max-width: 1031px) {
+    .header {
+        padding: 1.25rem 4%;
+    }
+
+
+} */
+
+
+
+@media (max-width: 1045px) {
+    #menu-icon {
+        display: block;
+    }
+
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        /* padding: 0.5rem 4%; */
+        display: none;
+    }
+
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: fit-content;
+    }
+
+    .navbar a,
+    button {
+        display: block;
+        /* margin: 1.5rem 0; */
+    }
+
+    button {
+        width: 300px;
+    }
+
+    .nav-bg {
+        position: absolute;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        height: 295px;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        z-index: 99;
+        display: none;
+    }
+
+
+    .nav-bg.active {
+        display: block;
+    }
+}
+
+@media (max-width: 555px) {
+
+    .navbar.active {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+
+}
+
+
+/* nav done */
+/* slide show */
+.slideshow {
+    list-style-type: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after {
+    top: -16px;
+    /*Not sure why I needed this fix*/
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    left: 0px;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite 0s;
+}
+
+
+
+.slideshow li:nth-child(1) span {
+    background-image: url("/club_images/slider4.jpeg");
+    animation-delay: 250ms;
+}
+
+.slideshow li:nth-child(2) span {
+    background-image: url("/club_images/slider1.jpg");
+    animation-delay: 250ms;
+}
+
+.slideshow li:nth-child(3) span {
+    background-image: url("/club_images/slider3.jpg");
+    animation-delay: 250ms;
+}
+
+.slideshow li:nth-child(4) span {
+    background-image: url("/club_images/slider2.jpg");
+    animation-delay: 250ms;
+}
+
+.slideshow li:nth-child(5) span {
+    background-image: url("/club_images/slider3.jpg");
+    animation-delay: 250mss;
+}
+
+
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    8% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+
+    17% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes titleAnimation {
+    0% {
+        opacity: 0
+    }
+
+    8% {
+        opacity: 1
+    }
+
+    17% {
+        opacity: 1
+    }
+
+    19% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+
+.no-cssanimations .cb-slideshow li span {
+    opacity: 1;
+}
+
+/* sliders done */
+/* clubs */
+.head2 {
+    margin-top: 2rem;
+    text-align: center;
+
+}
+
+.club-text {
+    color: #f00;
+}
+
+.button-70 {
+    background-image: linear-gradient(#0dccea, #0d70ea);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: .9em;
+    margin: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.clubs {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.clubs * {
+    color: #0d70ea;
+}
+
+/* img {
+    max-width: 100%;
+} */
+
+.ui-card {
+    width: 250px;
+    height: 250px;
+
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    margin: 20px;
+
+
+}
+
+.ui-card img {
+    transform: scale(1.3);
+    width: 250px;
+    padding: 2rem;
+    transition: all 0.3s ease-out;
+}
+
+.ui-card:hover img {
+    transform: scale(1.1) translateY(-20px);
+    opacity: 0.3
+}
+
+.ui-card .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.ui-card .description h3 {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0 0 20px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+
+}
+
+.ui-card .description p {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease-out 0.2s;
+}
+
+.ui-card .description a {
+    color: #fff;
+
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease-out 0.4s;
+}
+
+
+
+.ui-card:hover .description h3 {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.ui-card:hover .description p {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.ui-card:hover .description a {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* anouncement start*/
+.event-container {
+    font-family: "Roboto", sans-serif;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+
+.event-container h3.year {
+    font-size: 40px;
+    text-align: center;
+    border-bottom: 1px solid #b1b1b1;
+}
+
+.event-container .event {
+    box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.4);
+    display: flex;
+    border-radius: 8px;
+    margin: 32px 0;
+
+}
+
+.event .event-left {
+
+
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eee;
+    padding: 8px 48px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px 0 0 8px;
+}
+
+.event .event-left .date {
+    font-size: 56px;
+}
+
+.event .event-left .month {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.event .event-right {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 24px;
+}
+
+
+.event .event-right h3.event-title {
+    font-size: 24px;
+    margin: 24px 0 10px 0;
+    color: rgb(227, 75, 75);
+    text-transform: uppercase;
+}
+
+.head2 h2 {
+    color: rgb(227, 75, 75);
+}
+
+.event .event-right .event-timing {
+    background: #fff8ba;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    padding: 8px;
+    border-radius: 16px;
+    margin: 24px 0;
+    font-size: 12px;
+}
+
+.event-date {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.event .event-right .event-timing img {
+    height: 20px;
+    padding-right: 8px;
+}
+
+
+
+@media (max-width: 550px) {
+    .event {
+        flex-direction: column;
+    }
+
+
+
+    .event .event-left {
+        padding: 0;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .event .event-left .event-date .date,
+    .event .event-left .event-date .month {
+        display: inline-block;
+        font-size: 24px;
+    }
+
+    .event .event-left .event-date {
+        padding: 10px 0;
+    }
+}
+
+#event1 {
+    background-image: url('/club_images/melo.jpeg');
+    background-size: cover;
+}
+
+#event2 {
+    background-image: url('/club_images/taranga.jpeg');
+    background-size: cover;
+}
+
+#event3 {
+    background-image: url('/club_images/val.jpeg');
+    background-size: cover;
+}
+
+#event4 {
+    background-image: url('/club_images/chess.jpeg');
+    background-size: cover;
+}
+
+#event5 {
+    background-image: url('/club_images/mock.jpeg');
+    background-size: cover;
+}
+
+#event6 {
+    background-image: url('/club_images/rangi.jpeg');
+    background-size: cover;
+}
+
+#event7 {
+    background-image: url('/club_images/escape.jpeg');
+    background-size: cover;
+}
+
+/* footer */
+
+footer {
+
+    padding-bottom: 20px;
+    background: #0a1535;
+    color: #f9f9f9;
+    margin-top: 4rem;
+}
+
+
+
+
+footer section {
+    padding: 0 50px;
+}
+
+section.top {
+    padding-top: 30px;
+    margin-bottom: 48px;
+}
+
+
+section.top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.top ul li a {
+    text-decoration: none;
+}
+
+.top ul li a:hover {
+    color: #773ecb;
+}
+
+@media (width > 480px) {
+    footer article button {
+        width: 70%;
+    }
+
+    section.top ul {
+        padding-right: 10%;
+    }
+}
+
+@media (width > 600px) {
+    footer article {
+        flex-direction: row;
+        min-height: 140px;
+        margin: -70px 20px 20px;
+        padding: 30px 50px 30px;
+    }
+
+    footer article button {
+        width: auto;
+        padding: 0 20px 0 24px;
+    }
+
+    section.top ul {
+        grid-template-columns: repeat(4, 1fr);
+        padding-right: 0;
+    }
+}
+
+section.top ul li a {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(255 255 255 / 90%);
+}
+
+section.top h3 {
+    color: rgb(255 255 255 / 40%);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.uvce_img img {
+
+    width: 10rem;
+    height: auto;
+
+}
+
+section.bottom {
+    padding-top: 10px;
+    border-top: 2px solid rgb(255 255 255 / 10%);
+    color: rgb(255 255 255 / 40%);
+    font-size: 13px;
+}
