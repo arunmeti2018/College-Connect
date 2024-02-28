@@ -1,2 +1,2 @@
 # College-Connect
-https://65c7f4896679d4aa9d506b0d--stately-lamington-2fc6d2.netlify.app/
+https://65df33f6fec83d0c0be3d508--comfy-lokum-5f0060.netlify.app/
